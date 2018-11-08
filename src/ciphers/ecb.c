@@ -4,7 +4,7 @@
 #include <common.h>
 #include <stdio.h>
 
-//argv: 1 = block cipher type, block cipher size, input file name, output file name
+//argv: 1 = usageFlag[0-4], inputfile, output, file, --optional [blocksize] [blockfunction]
 
 int main(int argc, char **argv){
   if (argc < 5){
@@ -29,7 +29,7 @@ int main(int argc, char **argv){
   //TODO: pad the file with correct block cipher size here
   
   while(fread(buffer, 1, blockCipherSize, file_open)){
-    //call encryption function here
+    //call usage function here ie: encrypt, decrypt, sign, authenticate
     size_t count_write = fwrite(buffer, 1, blockCipherSize, out_open);
     if (count_write != blockCipherSize){
       perror("Write error\n");
