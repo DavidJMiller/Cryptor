@@ -19,4 +19,5 @@ RESTRICTIONS:
 
 Dependances:
 - Crypto++: apt-get install libcrypto++8 libcrypto++8-dbg libcrypto++-dev
-   - Make sure #include <crypto++/*.h>
+   - Make sure #include <cryptopp/*.h>
+   - Remember to compile with -lcryptopp flag
