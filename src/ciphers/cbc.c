@@ -2,6 +2,7 @@
 //Just xor by previous cipher text
 
 //args: usage_flag, input_file_name, output_file_name[, block_size, blockfunc(DES,AES)]
+//args: Usage: ./*.exe [blockCipherType] [blockCipherSize] [inputFile] [outputFile]
 
 #include <stdio.h>
 #include <stdlib.h>
