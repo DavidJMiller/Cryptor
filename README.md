@@ -18,4 +18,5 @@ RESTRICTIONS:
 -Block size n must satsify n = 2^i for some i = 5, 6, ..., 9
 
 Dependances:
-- apt-get install libcrypto++8 libcrypto++8-dbg libcrypto++-dev
+- Crypto++: apt-get install libcrypto++8 libcrypto++8-dbg libcrypto++-dev
+   - Make sure #include <crypto++/*.h>
