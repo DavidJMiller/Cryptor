@@ -47,8 +47,7 @@ int main(int argc, char **argv){
     
   }
   rewind(out_open);
-  unsigned int jpg = 0xffd8ffdb;
-  fprintf(out_open, "%x", jpg);
+  fprintf(out_open, "%x", "0xffd8ffdb");
   fclose(file_open);
   fclose(out_open);
   
