@@ -1,6 +1,7 @@
 #include <stdint.h> //allows (u)int64_t
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "blockfuncs/blockfuncs.h"
 //#include <openssl/aes.h>
 //#include <openssl/des.h>

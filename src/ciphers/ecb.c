@@ -4,7 +4,7 @@
 #include "../common.h"
 #include <stdio.h>
 
-//argv: 1 = usageFlag['e', 'd'], inputfile, output, file, --optional [blockfunction]
+//argv: 1 = usageFlag['e', 'd'], inputfile, outputfile, --optional <blockfunction>
 
 int main(int argc, char **argv){
   char * blockfunc_name;
