@@ -1,0 +1,4 @@
+action e
+blockfunc aes
+keylen 256
+filein tiger.bmp
