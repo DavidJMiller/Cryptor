@@ -80,15 +80,15 @@ def main():
             #Call certain executable based on elif(mode_of_encryption)
             cmd = ""
             if(mode_of_encryption.lower() == "ecb"):
-                cmd = './ecb config_file'
+                cmd = './a.out ecb config_file'
             elif(mode_of_encryption.lower() == "cbc"):
-                cmd = './cbc config_file'
+                cmd = './a.out cbc config_file'
             elif(mode_of_encryption.lower() == "ofb"):
-                cmd = './ofb config_file'
+                cmd = './a.out ofb config_file'
             elif(mode_of_encryption.lower() == "cfb"):
-                cmd = './cfb config_file'
+                cmd = './a.out cfb config_file'
             elif(mode_of_encryption.lower() == "ctr"):
-                cmd = './ctr config_file'
+                cmd = './a.out ctr config_file'
             else:
                 print("The mode entered is not a valid mode of encryption")
 
