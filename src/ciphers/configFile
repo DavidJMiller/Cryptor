@@ -1,4 +1,4 @@
-action e
+action d
 blockfunc aes
 keylen 256
-filein tiger.bmp
+filein testfile.encrypt

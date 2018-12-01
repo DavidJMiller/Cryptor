@@ -70,7 +70,11 @@ int main(int argc, char **argv){
   //TODO: do a switch based on blockCipherType
   
   
-  char * fileout = "output";
+  char fileout[255];
+  if (action == 'e')
+    snprintf(fileout, sizeof(fileout), "%s.encrypt", filein);
+  if (action == 'd')
+    snprintf(fileout, sizeof(fileout), "%s.decrypt", filein);
   uint8_t buffer[16];
   uint8_t ciphered[16];
   memset(buffer, 1, 16*sizeof(buffer[0]));
