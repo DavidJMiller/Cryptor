@@ -32,7 +32,7 @@ int main(int argc, char **argv){
   //8 byte with appended 8 byte counter == 16 byte cipher iv
   
   if (argc < 2){
-    printf("Usage: ./ecb configFile\n");
+    printf("Usage: ./ctr configFile\n");
     exit(EXIT_FAILURE);
   }
 
