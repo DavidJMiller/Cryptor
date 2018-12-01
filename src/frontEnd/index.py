@@ -29,7 +29,6 @@ def main():
         block_func = raw_input("")
         print("------------------------------------------------------------------------------\n")
         print("As with most block functions, we need a key length.")
-        print("This is important because....")
         print("So, the greater the key length, the more secure an encryption scheme is.")
         print("Note, by more secure, we mean that it is more computationally intensive, or infeasible, to bruteforce the keys of an algorithm within a reasonable amount of time")
         print("The recommended key sizes for:")
