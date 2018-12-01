@@ -23,8 +23,6 @@ def main():
         print("Within each mode of encryption there is still the block function to chose")
         print("We have made it possible for you to encrypt your files with the AES, RC4, and DES ciphers")
         print("AES is a block cipher which generates a certain key size determines the amount of rounds a cipher will run for")
-        print("RC4 is known as a key scheduling algorithm that is a stream cipher which creates a hardened, non-repeatable (to an extent) sequence of bits pseduorandomly generated to create a key that is XOR'd to create the ciphertext.")
-        print("DES is a block cipher which works by using subsituting and permuting bits of data on a specific block size.")
         print("Which block function would you like to use: AES, RC4, or DES?")
         block_func = raw_input("")
         print("------------------------------------------------------------------------------\n")
@@ -32,9 +30,7 @@ def main():
         print("So, the greater the key length, the more secure an encryption scheme is.")
         print("Note, by more secure, we mean that it is more computationally intensive, or infeasible, to bruteforce the keys of an algorithm within a reasonable amount of time")
         print("The recommended key sizes for:")
-        print("\tAES - 128 or 256")
-        print("\tRC4 - 256")
-        print("\tDES - 56")
+        print("\tAES - 128 or 192 or 256")
         key_size = raw_input("")
         print("------------------------------------------------------------------------------\n")
         print("Last, we just need to decide the action to take: Encrypt, Decrypt, Hash, or Sign?")
@@ -56,13 +52,7 @@ def main():
         if(good == "YES") or (good == "yes") or (good == "y") or (good == "Y"):
             print("\nPlease wait while we operate on your file\n\n")
             flg = 1
-
-            #Write config file in certain format for parsing
-            f = open("config_file", "w+")
-            f.write("action " + action + "\n")
-            f.write("blockfunc " + block_func + "\n")
-            f.write("keylen " + key_size + "\n")
-
+            
             #Reformat action to expected parse
             if(action == "encrypt"):
                 action = "e"
@@ -73,21 +63,26 @@ def main():
             elif(action == "sign"):
                 action = "s"
 
-            f.write("filein " + action + "\n")
+            #Write config file in certain format for parsing
+            f = open("config_file", "w+")
+            f.write("action " + action + "\n")
+            f.write("blockfunc " + block_func + "\n")
+            f.write("keylen " + key_size + "\n")
+            f.write("filein " + file_name + "\n")
             f.close()
 
             #Call certain executable based on elif(mode_of_encryption)
             cmd = ""
             if(mode_of_encryption.lower() == "ecb"):
-                cmd = '../blockfunc/a.out ecb config_file'
+                cmd = '../ciphers/ecb config_file'
             elif(mode_of_encryption.lower() == "cbc"):
-                cmd = '../blockfunc/a.out cbc config_file'
+                cmd = '../ciphers/cbc config_file'
             elif(mode_of_encryption.lower() == "ofb"):
-                cmd = '../blockfunc/a.out ofb config_file'
+                cmd = '../ciphers/ofb config_file'
             elif(mode_of_encryption.lower() == "cfb"):
-                cmd = '../blockfunc/a.out cfb config_file'
+                cmd = '../ciphers/cfb config_file'
             elif(mode_of_encryption.lower() == "ctr"):
-                cmd = '../blockfunc/a.out ctr config_file'
+                cmd = '../ciphers/ctr config_file'
             else:
                 print("The mode entered is not a valid mode of encryption")
 

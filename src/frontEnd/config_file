@@ -1,0 +1,4 @@
+action d
+blockfunc AES
+keylen 256
+filein file.encrypt
