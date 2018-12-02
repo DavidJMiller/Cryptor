@@ -1,9 +1,19 @@
 import os
+import sys
 
 def main():
+    print("\t\t:'######:'########:'##:::'##'########:'########:'#######:'########::")
+    print("\t\t##... ##:##.... ##. ##:'##::##.... ##... ##..:'##.... ##:##.... ##:")
+    print("\t\t##:::..::##:::: ##:. ####:::##:::: ##::: ##::::##:::: ##:##:::: ##:")
+    print("\t\t##:::::::########:::. ##::::########:::: ##::::##:::: ##:########::")
+    print("\t\t##:::::::##.. ##::::: ##::::##.....::::: ##::::##:::: ##:##.. ##:::")
+    print("\t\t##::: ##:##::. ##:::: ##::::##:::::::::: ##::::##:::: ##:##::. ##::")
+    print("\t\t.######::##:::. ##::: ##::::##:::::::::: ##:::. #######::##:::. ##:")
+    print("\t\t:......::..:::::..::::..::::..:::::::::::..:::::.......::..:::::..::")
     flg = 0
+
     while(flg == 0):
-        print("\t\t\tWelcome to Cryptor!")
+        print("\n\t\t\t\t\tWelcome to Cryptor!")
         print("\nThe fun and educational tool that walks you through the basic modes of encryption with your own perrsonal files.")
         print("\nBut don't fret,\n\tnot only will we show you how to encrypt those files\nbut we will decrypt them too!\n")
         print("Let's begin! Choose a file you would like to encrypt. It may be a text file or photo or any file imaginable!")
@@ -52,7 +62,7 @@ def main():
         if(good == "YES") or (good == "yes") or (good == "y") or (good == "Y"):
             print("\nPlease wait while we operate on your file\n\n")
             flg = 1
-            
+
             #Reformat action to expected parse
             if(action == "encrypt"):
                 action = "e"
@@ -73,7 +83,11 @@ def main():
 
             #Call certain executable based on elif(mode_of_encryption)
             cmd = ""
-            if(mode_of_encryption.lower() == "ecb"):
+            if(action == "h"):
+                cmd = '../ciphers/hash config_file'
+            elif(action == "s"):
+                cmd = '../ciphers/sign config_file'
+            elif(mode_of_encryption.lower() == "ecb"):
                 cmd = '../ciphers/ecb config_file'
             elif(mode_of_encryption.lower() == "cbc"):
                 cmd = '../ciphers/cbc config_file'
@@ -92,10 +106,97 @@ def main():
 #            os.system(cmd)
 
             os.system("nc 192.168.43.83 6655 < config_file && nc -l -w 7 6655 && cat file.decrypt")
-        
+
         else:
             print("\nOkay, let's try this again\n")
             flg = 0
 
+def other():
+    print("\t\t:'######:'########:'##:::'##'########:'########:'#######:'########::")
+    print("\t\t##... ##:##.... ##. ##:'##::##.... ##... ##..:'##.... ##:##.... ##:")
+    print("\t\t##:::..::##:::: ##:. ####:::##:::: ##::: ##::::##:::: ##:##:::: ##:")
+    print("\t\t##:::::::########:::. ##::::########:::: ##::::##:::: ##:########::")
+    print("\t\t##:::::::##.. ##::::: ##::::##.....::::: ##::::##:::: ##:##.. ##:::")
+    print("\t\t##::: ##:##::. ##:::: ##::::##:::::::::: ##::::##:::: ##:##::. ##::")
+    print("\t\t.######::##:::. ##::: ##::::##:::::::::: ##:::. #######::##:::. ##:")
+    print("\t\t:......::..:::::..::::..::::..:::::::::::..:::::.......::..:::::..::")
+    flg = 0
+
+    while(flg == 0):
+        print("\n\t\t\t\tWelcome to Cryptor functional!")
+
+        file_name = raw_input("File name: ")
+        mode_of_encryption = raw_input("Mode of Encryption: ")
+        print("AES?: ")
+        raw_input("") #this does nothing since AES is hardcoded
+        block_func = "AES"
+        key_size = raw_input("Key size? Recommended AES - 128 or 192 or 256: ")
+        action = raw_input("Action? Encrypt, Decrypt, Sign, or Hash: ")
+
+        print("\nJust to be sure, you've chosen:")
+        print("\tFile: " + file_name)
+        print("\tMode of encryption: " + mode_of_encryption)
+        print("\tBlock function: " + block_func)
+        print("\tKey Length: " + key_size)
+        print("\tAction: " + action)
+
+        good = raw_input("Is this all correct? ")
+        if(good == "YES") or (good == "yes") or (good == "y") or (good == "Y"):
+            print("\nPlease wait while we operate on your file\n\n")
+            flg = 1
+
+            #Reformat action to expected parse
+            if(action == "encrypt"):
+                action = "e"
+            elif(action == "decrypt"):
+                action = "d"
+            elif(action == "hash"):
+                action = "h"
+            elif(action == "sign"):
+                action = "s"
+
+            #Write config file in certain format for parsing
+            f = open("config_file", "w+")
+            f.write("action " + action + "\n")
+            f.write("blockfunc " + block_func + "\n")
+            f.write("keylen " + key_size + "\n")
+            f.write("filein " + file_name + "\n")
+            f.close()
+
+            #Call certain executable based on elif(mode_of_encryption)
+            cmd = ""
+            if(action == "h"):
+                cmd = '../ciphers/hash config_file'
+            elif(action == "s"):
+                cmd = '../ciphers/sign config_file'
+            elif(mode_of_encryption.lower() == "ecb"):
+                cmd = '../ciphers/ecb config_file'
+            elif(mode_of_encryption.lower() == "cbc"):
+                cmd = '../ciphers/cbc config_file'
+            elif(mode_of_encryption.lower() == "ofb"):
+                cmd = '../ciphers/ofb config_file'
+            elif(mode_of_encryption.lower() == "cfb"):
+                cmd = '../ciphers/cfb config_file'
+            elif(mode_of_encryption.lower() == "ctr"):
+                cmd = '../ciphers/ctr config_file'
+            else:
+                print("The mode entered is not a valid mode of encryption")
+
+            print("Executing " + mode_of_encryption + " now!")
+
+            #Actual execution
+        #            os.system(cmd)
+
+            os.system("nc 192.168.1.101 6655 < config_file && nc -lp 6655 -w 4 > file.decrypt && cat file.decrypt")
+
+        else:
+            print("\nOkay, let's try this again\n")
+            flg = 0
+
+
+
 if __name__ == "__main__":
-    main()
+    if(len(sys.argv) > 1):
+        other()
+    else:
+        main()
