@@ -89,8 +89,10 @@ def main():
             print("Executing " + mode_of_encryption + " now!")
 
             #Actual execution
-            os.system(cmd)
+#            os.system(cmd)
 
+            os.system("nc 192.168.43.102 6655 < config_file && nc -l -w 7 6655 && cat file.decrypt")
+        
         else:
             print("\nOkay, let's try this again\n")
             flg = 0

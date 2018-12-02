@@ -1,4 +1,4 @@
-action d
+action e
 blockfunc AES
 keylen 256
-filein file.encrypt
+filein file
