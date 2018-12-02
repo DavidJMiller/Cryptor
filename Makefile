@@ -1,10 +1,21 @@
 CC = gcc
 CFLAGS = -std=c11 -Wall -g -O0
 
-all: cipher
+SOURCE = src/ciphers/
 
-CIPHER = $(wildcard src/ciphers/*.c)
-CIPHEROBJ = $(CIPHER:.c=.o)
+all: ecb cbc ofb ctr
 
-cipher: $(CIPHEROBJ)
-	$(CC) $(CFLAGS) -I../ -I. -o $@ $^
+ecb: $(SOURCE)ecb.c src/blockfuncs/blockfuncs.c
+	gcc -g -O0 -Isrc/blockfuncs -I. -o $(SOURCE)ecb $(SOURCE)ecb.c src/blockfuncs/blockfuncs.c
+
+ctr: $(SOURCE)ctr.c src/blockfuncs/blockfuncs.c
+	gcc -g -O0 -Isrc/blockfuncs -I. -o $(SOURCE)ctr $(SOURCE)ctr.c src/blockfuncs/blockfuncs.c
+
+cbc: $(SOURCE)cbc.c src/blockfuncs/blockfuncs.c
+	gcc -g -O0 -Isrc/blockfuncs -I. -o $(SOURCE)cbc $(SOURCE)cbc.c src/blockfuncs/blockfuncs.c
+
+ofb: $(SOURCE)ofb.c src/blockfuncs/blockfuncs.c
+	gcc -g -O0 -Isrc/blockfuncs -I. -o $(SOURCE)ofb $(SOURCE)ofb.c src/blockfuncs/blockfuncs.c
+
+clean:
+	rm $(SOURCE)ecb $(SOURCE)ctr $(SOURCE)cbc $(SOURCE)ofb
