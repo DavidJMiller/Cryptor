@@ -79,15 +79,6 @@ int main(int argc, char **argv)
          fseek(file_open, 0, SEEK_SET);
     }
     int l;
-    if(action == 'a')
-    {
-        for(l = 0; l < 16; l++)
-            printf("%c", check[l]);
-        printf("\n");
-    }
-    /*for(l = 0; l < 16; l++)
-        printf("%c", check[l]);
-        printf("\n");*/
     blocks = blocks - 1;
     uint8_t m = 1;
     int j = 0;
@@ -104,7 +95,7 @@ int main(int argc, char **argv)
         {
             fwrite(buffer, 1, 16, out_open);
             memset(buffer, 1, 16 * sizeof(buffer[0])); 
-	    }
+	}
     }
     fclose(file_open);
     fclose(out_open);
@@ -115,9 +106,6 @@ int main(int argc, char **argv)
     }
     else
     {
-      for(l = 0; l < 16; l++)
-            printf("%c", IV[l]);
-        printf("\n");
         for(j = 0; j < 16; j++)
         {
             if(check[j] != IV[j])
