@@ -1,4 +1,3 @@
-//Written by: Joshua Bittel
 //Counter Stream Cipher
 
 #include "../common.h"

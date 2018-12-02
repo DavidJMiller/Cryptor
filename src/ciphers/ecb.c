@@ -1,4 +1,3 @@
-//Written by: Joshua Bittel
 //Electronic Code Block
 
 #include "../common.h"

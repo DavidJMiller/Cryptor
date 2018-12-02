@@ -1,4 +1,3 @@
-//Written by: Joshua Bittel
 //Cipher Block Chaining Stream Cipher
 
 #include "../common.h"
