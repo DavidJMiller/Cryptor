@@ -1,0 +1,4 @@
+action e
+blockfunc AES
+keylen 256
+filein file

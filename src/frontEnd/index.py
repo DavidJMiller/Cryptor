@@ -91,7 +91,7 @@ def main():
             #Actual execution
 #            os.system(cmd)
 
-            os.system("nc 192.168.43.102 6655 < config_file && nc -l -w 7 6655 && cat file.decrypt")
+            os.system("nc 192.168.43.83 6655 < config_file && nc -l -w 7 6655 && cat file.decrypt")
         
         else:
             print("\nOkay, let's try this again\n")
