@@ -17,5 +17,8 @@ cbc: $(SOURCE)cbc.c src/blockfuncs/blockfuncs.c
 ofb: $(SOURCE)ofb.c src/blockfuncs/blockfuncs.c
 	gcc -g -O0 -Isrc/blockfuncs -I. -o $(SOURCE)ofb $(SOURCE)ofb.c src/blockfuncs/blockfuncs.c
 
+rc4: $(SOURCE)Rc4.c
+	gcc -g -O0 -I. -o $(SOURCE)Rc4 $(SOURCE)Rc4.c
+
 clean:
-	rm $(SOURCE)ecb $(SOURCE)ctr $(SOURCE)cbc $(SOURCE)ofb
+	rm $(SOURCE)ecb $(SOURCE)ctr $(SOURCE)cbc $(SOURCE)ofb $(SOURCE)Rc4
