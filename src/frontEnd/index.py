@@ -29,7 +29,7 @@ def main(): #this is interactive mode
         print("Merkle-Damgard is a type of collision-resistant cryptographic hash construction that uses a one-way compression function that inputs the prevoius round's hash along with the current round's plaintext. At the end of the hahsing- to pad, this method uses a special padding block.\n")#Merkle Damgard Hash
         print("For Merkle-Damgard, just type 'hash'")
         print("RC4 (rc4) stream cipher simply generates a pseudo-random key stream which then endures various byte manipulations to yeild a ciphertextself.\n")
-        print("Vignere (vig) cipher copies a keyword however many times over in order to encrypt each character of a plaintext by a letter within that word.\n")#vignere
+        print("Vigenere (vig) cipher copies a keyword however many times over in order to encrypt each character of a plaintext by a letter within that word.\n")#vignere
         print("Caesar (caes) cipher is a simple alphabetical shift cipher that depending on the key will shift each letter a certain number of letters alphabetically to create the ciphertext.\n")
         print("Now, what mode would you like to use? Please enter the abbreviation here.")
         mode_of_encryption = raw_input("")
@@ -110,8 +110,10 @@ def main(): #this is interactive mode
                 cmd = '../ciphers/ctr ../ciphers/config_file'
             elif mode_of_encryption.lower() == "rc4":
                 cmd = '../ciphers/RC4 ../ciphers/config_file'
-            elif mode_of_encryption.lower() == "vigenere":
-                cmd = '../ciphers/vigenere ../ciphers/config_file'
+            elif mode_of_encryption.lower() == "vig":
+                cmd = '../ciphers/vignerre ../ciphers/config_file'
+            elif mode_of_encryption.lower() == "caes":
+                cmd = '../ciphers/caesar ../ciphers/config_file'
             else:
                 print("The mode entered is not a valid mode of encryption")
 
