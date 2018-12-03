@@ -28,8 +28,9 @@ def main(): #this is interactive mode
         print("Counter, ctr, mode is unique in that it turns a block cipher into a stream cipher. The algorithm generates a keystream block by encrypting incrimental values from the IV. That value is is encrypted in a block cipher and then XOR'd with the plantext. As stated, a following round would then simply impliment the counter and input that new value into the block cipher to repeat on the next block of plaintext data to be encrypted.\n")
         print("Merkle-Damgard is a type of collision-resistant cryptographic hash construction that uses a one-way compression function that inputs the prevoius round's hash along with the current round's plaintext. At the end of the hahsing- to pad, this method uses a special padding block.\n")#Merkle Damgard Hash
         print("For Merkle-Damgard, just type 'hash'")
-        print("RC4 stream cipher simply generates a pseudo-random key stream which then endures various byte manipulations to yeild a ciphertextself.\n")
-        print("Vignere cipher copies a keyword however many times over in order to encrypt each character of a plaintext by a letter within that word.\n")#vignere
+        print("RC4 (rc4) stream cipher simply generates a pseudo-random key stream which then endures various byte manipulations to yeild a ciphertextself.\n")
+        print("Vignere (vig) cipher copies a keyword however many times over in order to encrypt each character of a plaintext by a letter within that word.\n")#vignere
+        print("Caesar (caes) cipher is a simple alphabetical shift cipher that depending on the key will shift each letter a certain number of letters alphabetically to create the ciphertext.\n")
         print("Now, what mode would you like to use? Please enter the abbreviation here.")
         mode_of_encryption = raw_input("")
         print("Next we will pick our encrypting block function.")
@@ -41,7 +42,7 @@ def main(): #this is interactive mode
         print("Which block function would you like to use: AES, RC4, or DES?\n")
         print("  **If you want to use our Merkle-Damgard hash, enter 'hash' here.\n")
         block_func = raw_input("")
-        block_func = "AES" #since this is the only one we currently have implimented
+       # block_func = "AES" #since this is the only one we currently have implimented
         print("Next we will pick our encrypting block function's key size.")
         print("------------------------------------------------------------------------------\n")
         print("As with most block functions, we need a key length.")

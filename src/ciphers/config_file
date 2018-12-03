@@ -1,4 +1,4 @@
-action a
-blockfunc sad
-keylen sd
-filein important.sign
+action s
+blockfunc hash
+keylen hash
+filein super_secret_cnn
