@@ -1,4 +1,4 @@
-action s
-blockfunc hash
-keylen hash
+action e
+blockfunc na
+keylen na
 filein super_secret_cnn
