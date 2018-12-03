@@ -1,4 +1,4 @@
-action d
-blockfunc AES
-keylen 256
-filein testfile.encrypt
+action a
+blockfunc sad
+keylen sd
+filein important.sign

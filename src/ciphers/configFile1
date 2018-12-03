@@ -1,0 +1,4 @@
+action a
+blockfunc aes
+keylen 128
+filein important.signcopy

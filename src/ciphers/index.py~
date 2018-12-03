@@ -88,9 +88,9 @@ def main():
             #Call certain executable based on elif(mode_of_encryption)
             cmd = ""
             if(action == "a"):
-                cmd = '../ciphers/mdh ../ciphers/config_file'
+                cmd = '../ciphers/mdh config_file'
             elif(action == "s"):
-                cmd = '../ciphers/mdh ../ciphers/config_file'
+                cmd = '../ciphers/mdh config_file'
             elif(mode_of_encryption.lower() == "ecb"):
                 cmd = '../ciphers/ecb config_file'
             elif(mode_of_encryption.lower() == "cbc"):

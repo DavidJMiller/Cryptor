@@ -3,7 +3,7 @@ CFLAGS = -std=c11 -Wall -g -O0
 
 SOURCE = src/ciphers/
 
-all: ecb cbc ofb ctr rc4 cfb
+all: ecb cbc ofb ctr rc4 cfb mdh
 
 ecb: $(SOURCE)ecb.c src/blockfuncs/blockfuncs.c
 	gcc -g -O0 -Isrc/blockfuncs -I. -o $(SOURCE)ecb $(SOURCE)ecb.c src/blockfuncs/blockfuncs.c
@@ -22,6 +22,9 @@ rc4: $(SOURCE)RC4.c
 
 cfb: $(SOURCE)cfb.c src/blockfuncs/blockfuncs.c
 	gcc -g -O0 -Isrc/blockfuncs -I. -o $(SOURCE)cfb $(SOURCE)cfb.c src/blockfuncs/blockfuncs.c
+
+mdh: $(SOURCE)mdhash.c
+	gcc -g -O0 -I. -o $(SOURCE)mdh $(SOURCE)mdhash.c
 
 clean:
 	rm $(SOURCE)ecb $(SOURCE)ctr $(SOURCE)cbc $(SOURCE)ofb $(SOURCE)Rc4 $(SOURCE)cfb

@@ -71,7 +71,7 @@ int main(int argc, char **argv)
     memset(buffer, 1, 16 * sizeof(buffer[0]));  
 
     int blocks = 0;
-
+    printf("ACTION: %c\n", action);
     memset(buffer, 0, 16 * sizeof(buffer[0]));  
     if(action == 'a')
     {
